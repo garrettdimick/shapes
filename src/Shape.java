@@ -13,18 +13,6 @@ public abstract class Shape {
         center = new Point(cen.getX(), cen.getY());
     }
 
-    /**
-     * Constructor
-     * @param x - x value for center of Shape
-     * @param y - y value for center of Shape
-     * @throws ShapeException - thrown if x or y are not valid doubles
-     */
-    protected Shape(double x, double y) throws ShapeException{
-        Validator.validateDouble(x, "Invalid x-location");
-        Validator.validateDouble(y, "Invalid y-location");
-        center = new Point(x, y);
-    }
-
     public Shape() throws ShapeException{
         this.center = new Point(0,0);
     }
@@ -34,6 +22,8 @@ public abstract class Shape {
      * @return
      */
     public abstract double computeArea();
+    public abstract double drawShape();
+
     public Point getCenter(){return center;}
 
     /**
@@ -41,7 +31,7 @@ public abstract class Shape {
      * @param c
      * @throws ShapeException - thrown if Point is not a valid Point
      */
-    public void setCenter(Point c) throws ShapeException {
+    private void setCenter(Point c) throws ShapeException {
         Validator.validatePoint(c, "Invalid Point");
         this.center = new Point(c.getX(), c.getY());
     }
@@ -55,5 +45,10 @@ public abstract class Shape {
         Validator.validateDouble(deltaX, "Invalid x value");
         Validator.validateDouble(deltaY, "Invalid y value");
         center.move(deltaX, deltaY);
+    }
+
+    public double lineLength(Point point1, Point point2){
+        return Math.sqrt(Math.pow(point2.getX() - point1.getX(), 2) +
+                Math.pow(point2.getY() - point1.getY(), 2));
     }
 }
