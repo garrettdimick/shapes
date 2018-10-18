@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Triangle extends Shape{
 
     private Point vertex1;
@@ -42,6 +44,13 @@ public class Triangle extends Shape{
         double a = Math.sqrt(p*(p-lineLength(vertex1, vertex2))*(lineLength(vertex2,  vertex3))*
                 (p-lineLength(vertex3, vertex1)));
         return a;
+    }
+
+    @Override
+    public void renderShape(Graphics g) {
+        int x[]={(int)vertex1.getX(), (int)vertex2.getX(), (int)vertex3.getX()};
+        int y[] = {(int)vertex1.getY(), (int)vertex2.getY(), (int)vertex3.getY()};
+        g.drawPolygon(x, y, 3);
     }
 
     public Point getVertex1() {

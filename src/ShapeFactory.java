@@ -9,7 +9,11 @@ public class ShapeFactory {
      */
     private static final HashMap shapeMap = new HashMap();
 
-    public static CompositeShape getShape() {
+//    public static CompositeShape getShape() {
+//
+//    }
+
+    public void createFromInput(){
 
     }
 }

@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -15,6 +16,12 @@ public class CompositeShape extends Shape{
         shapeList.remove(s);
     }
 
+    public void removeAll(){
+        for(Shape s : shapeList){
+            shapeList.remove(s);
+        }
+    }
+
     public Shape getChild(int i){
         return shapeList.get(i);
     }
@@ -29,5 +36,12 @@ public class CompositeShape extends Shape{
         return area;
     }
 
-
+    @Override
+    public void renderShape(Graphics g) {
+        Iterator<Shape> iterator = shapeList.iterator();
+        while(iterator.hasNext()){
+            Shape shape = iterator.next();
+            shape.renderShape(g);
+        }
+    }
 }

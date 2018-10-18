@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 public abstract class Shape {
     private Point center;
 
@@ -22,7 +25,7 @@ public abstract class Shape {
      * @return
      */
     public abstract double computeArea();
-    public abstract double drawShape();
+    public abstract void renderShape(Graphics g);
 
     public Point getCenter(){return center;}
 
@@ -31,7 +34,7 @@ public abstract class Shape {
      * @param c
      * @throws ShapeException - thrown if Point is not a valid Point
      */
-    private void setCenter(Point c) throws ShapeException {
+    void setCenter(Point c) throws ShapeException {
         Validator.validatePoint(c, "Invalid Point");
         this.center = new Point(c.getX(), c.getY());
     }
@@ -51,4 +54,6 @@ public abstract class Shape {
         return Math.sqrt(Math.pow(point2.getX() - point1.getX(), 2) +
                 Math.pow(point2.getY() - point1.getY(), 2));
     }
+
+
 }

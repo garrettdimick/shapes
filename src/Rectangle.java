@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Rectangle extends Shape{
     private double height;
     private double width;
@@ -41,6 +43,11 @@ public class Rectangle extends Shape{
 
     public double computeArea(){
         return this.height * this.width;
+    }
+
+    @Override
+    public void renderShape(Graphics g){
+        g.drawRect((int)this.vertex1.getX(), (int)this.vertex1.getY(), (int)this.getWidth(), (int)this.getHeight());
     }
 
     public double getHeight() {

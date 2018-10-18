@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * Circle
  *
@@ -7,20 +9,21 @@
 @SuppressWarnings("WeakerAccess")
 public class Circle extends Shape{
     private double radius;
+    private Point center;
 
     /**
      * Constructor with a Point for center
      *
-     * @param center            The x-location of the center of the circle -- must be a valid point
+     * @param cen            The Point of the center of the circle -- must be a valid point
      * @param radius            The radius of the circle -- must be greater or equal to zero.
      * @throws ShapeException   The exception thrown if the x, y, or z are not valid
      */
-    public Circle(Point center, double radius) throws ShapeException {
-        super(center);
+    public Circle(Point cen, double radius) throws ShapeException {
+        super(cen);
         Validator.validateDouble(radius, "Invalid radius");
-        if (center==null)
-            throw new ShapeException("Invalid center point");
+        Validator.validatePoint(center, "Invalid center point");
         this.radius = radius;
+        this.center = cen;
     }
 
     /**
@@ -33,6 +36,11 @@ public class Circle extends Shape{
      */
     public double computeArea() {
         return Math.PI * Math.pow(radius, 2);
+    }
+
+    @Override
+    public void renderShape(Graphics g) {
+        g.drawOval((int) this.getCenter().getX(), (int)this.getCenter().getY(), (int)this.radius, (int)this.radius);
     }
 
 }

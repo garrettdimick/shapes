@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Square extends Shape{
     private double sideLength;
     private Point vertex1;
@@ -32,6 +34,11 @@ public class Square extends Shape{
 
     public double computeArea(){
         return this.sideLength * this.sideLength;
+    }
+
+    @Override
+    public void renderShape(Graphics g) {
+        g.drawRect((int)this.vertex1.getX(), (int)this.vertex1.getY(), (int)this.getSideLength(), (int)this.getSideLength());
     }
 
     public Point squareCalcCenter() throws ShapeException{

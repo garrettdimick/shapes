@@ -40,22 +40,11 @@ public class Validator {
      * @throws ShapeException
      */
     public static void validateTriangle(Triangle t, String errorMessage) throws ShapeException{
-        validateLine(t.getSide1(), "Invalid Line for a Triangle");
-        validateLine(t.getSide2(), "Invalid Line for a Triangle");
-        validateLine(t.getSide3(), "Invalid Line for a Triangle");
+
         if(t.getVertex1().getX() == t.getVertex2().getX()){
             if(t.getVertex1().getX() == t.getVertex3().getX()){
                 throw new ShapeException(errorMessage);
             }
-        }
-        if(t.getSide1().computeLength() + t.getSide2().computeLength() < t.getSide3().computeLength()){
-            throw new ShapeException(errorMessage);
-        }
-        if(t.getSide2().computeLength() + t.getSide3().computeLength() < t.getSide1().computeLength()){
-            throw new ShapeException(errorMessage);
-        }
-        if(t.getSide1().computeLength() + t.getSide3().computeLength() < t.getSide2().computeLength()){
-            throw new ShapeException(errorMessage);
         }
     }
 
@@ -96,45 +85,7 @@ public class Validator {
      * @throws ShapeException
      */
     public static void validateRectangle(Rectangle r, String errorMessage) throws ShapeException{
-        validateLine(r.getSide1(), "Invalid side for this rectangle");
-        validateLine(r.getSide2(), "Invalid side for this rectangle");
-        validateLine(r.getSide3(), "Invalid side for this rectangle");
-        validateLine(r.getSide4(), "Invalid side for this rectangle");
-        //Make sure parallel sides are the same length
-        if(r.getSide1().computeLength() != r.getSide3().computeLength()){
-            throw new ShapeException(errorMessage);
-        }
-        if(r.getSide2().computeLength() != r.getSide4().computeLength()){
-            throw new ShapeException(errorMessage);
-        }
-        //Corner 1 check
-        if(r.getSide1().getPoint2().getX() != r.getSide2().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(r.getSide1().getPoint2().getY() != r.getSide2().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
-        //Corner 2 check
-        if(r.getSide2().getPoint2().getX() != r.getSide3().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(r.getSide2().getPoint2().getY() != r.getSide3().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
-        //corner 3 check
-        if(r.getSide3().getPoint2().getX() != r.getSide4().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(r.getSide3().getPoint2().getY() != r.getSide4().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
-        //corner 4 check
-        if(r.getSide4().getPoint2().getX() != r.getSide1().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(r.getSide4().getPoint2().getY() != r.getSide1().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
+
     }
 
     /**
@@ -145,47 +96,6 @@ public class Validator {
      * @throws ShapeException
      */
     public static void validateSquare(Square s, String errorMessage) throws ShapeException{
-        validateLine(s.getSide1(), "Invalid side for this square");
-        validateLine(s.getSide2(), "Invalid side for this square");
-        validateLine(s.getSide3(), "invalid side for this square");
-        validateLine(s.getSide4(), "Invalid side for this square");
-        //Make sure all sides are the same length
-        if(s.getSide1().computeLength() != s.getSide2().computeLength()){
-            throw new ShapeException(errorMessage);
-        }
-        if(s.getSide1().computeLength() != s.getSide3().computeLength()){
-            throw new ShapeException(errorMessage);
-        }
-        if(s.getSide1().computeLength() != s.getSide4().computeLength()){
-            throw new ShapeException(errorMessage);
-        }
-        //Corner 1 check
-        if(s.getSide1().getPoint2().getX() != s.getSide2().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(s.getSide1().getPoint2().getY() != s.getSide2().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
-        //Corner 2 check
-        if(s.getSide2().getPoint2().getX() != s.getSide3().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(s.getSide2().getPoint2().getY() != s.getSide3().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
-        //corner 3 check
-        if(s.getSide3().getPoint2().getX() != s.getSide4().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(s.getSide3().getPoint2().getY() != s.getSide4().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
-        //corner 4 check
-        if(s.getSide4().getPoint2().getX() != s.getSide1().getPoint1().getX()){
-            throw new ShapeException(errorMessage);
-        }
-        if(s.getSide4().getPoint2().getY() != s.getSide1().getPoint1().getY()){
-            throw new ShapeException(errorMessage);
-        }
+
     }
 }

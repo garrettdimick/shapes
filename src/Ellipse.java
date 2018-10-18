@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Ellipse extends Shape{
     private double xRadius;
     private double yRadius;
@@ -24,6 +26,11 @@ public class Ellipse extends Shape{
      */
     public double computeArea(){
         return Math.PI * this.xRadius * this.yRadius;
+    }
+
+    @Override
+    public void renderShape(Graphics g) {
+        g.drawOval((int) this.getCenter().getX(), (int)this.getCenter().getY(), (int)this.xRadius, (int)this.yRadius);
     }
 
     public double getxRadius() {
