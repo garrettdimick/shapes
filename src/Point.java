@@ -33,22 +33,6 @@ public class Point {
     public double getY() { return y; }
 
     /**
-     * set x value
-     * @param newX
-     */
-    public void setX(double newX){
-        this.x = newX;
-    }
-
-    /**
-     * set y value
-     * @param newY
-     */
-    public void setY(double newY){
-        this.y = newY;
-    }
-
-    /**
      * Move the point in the x direction
      *
      * @param deltaX            The delta amount to move the point -- must be a valid double
@@ -89,5 +73,10 @@ public class Point {
      */
     public Point copy() throws ShapeException {
         return new Point(x, y);
+    }
+
+    public String toString(){
+        String s = this.getX() + "," + this.getY();
+        return s;
     }
 }

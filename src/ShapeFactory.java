@@ -1,3 +1,4 @@
+import java.io.InputStream;
 import java.util.HashMap;
 
 public class ShapeFactory {
@@ -9,11 +10,20 @@ public class ShapeFactory {
      */
     private static final HashMap shapeMap = new HashMap();
 
-//    public static CompositeShape getShape() {
+//    public static CompositeShape getComposite() {
 //
 //    }
 
-    public void createFromInput(){
+//    public static Shape getCircle(String id){
+////        Circle c = (Circle)shapeMap.get(id);
+////        if(c==null){
+////            createCircleFromInput();
+////
+////        }
+////        return
+//    }
 
-    }
+//    public void parseInput(){
+//        InputStream in = new InputStream();
+//    }
 }

@@ -50,6 +50,11 @@ public class Rectangle extends Shape{
         g.drawRect((int)this.vertex1.getX(), (int)this.vertex1.getY(), (int)this.getWidth(), (int)this.getHeight());
     }
 
+    public String toString(){
+        return "Rectangle," + this.getVertex1().toString() + "," + this.getVertex2().toString()
+                    + "," + this.getVertex3().toString() + "," + this.getVertex4().toString() + "|";
+    }
+
     public double getHeight() {
         return height;
     }

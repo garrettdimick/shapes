@@ -9,7 +9,6 @@ import java.awt.*;
 @SuppressWarnings("WeakerAccess")
 public class Circle extends Shape{
     private double radius;
-    private Point center;
 
     /**
      * Constructor with a Point for center
@@ -21,9 +20,7 @@ public class Circle extends Shape{
     public Circle(Point cen, double radius) throws ShapeException {
         super(cen);
         Validator.validateDouble(radius, "Invalid radius");
-        Validator.validatePoint(center, "Invalid center point");
         this.radius = radius;
-        this.center = cen;
     }
 
     /**
@@ -41,6 +38,10 @@ public class Circle extends Shape{
     @Override
     public void renderShape(Graphics g) {
         g.drawOval((int) this.getCenter().getX(), (int)this.getCenter().getY(), (int)this.radius, (int)this.radius);
+    }
+
+    public String toString(){
+        return "Circle," + this.getCenter().toString() + "," + this.getRadius() + "|";
     }
 
 }

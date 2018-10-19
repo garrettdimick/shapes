@@ -40,7 +40,6 @@ public class Validator {
      * @throws ShapeException
      */
     public static void validateTriangle(Triangle t, String errorMessage) throws ShapeException{
-
         if(t.getVertex1().getX() == t.getVertex2().getX()){
             if(t.getVertex1().getX() == t.getVertex3().getX()){
                 throw new ShapeException(errorMessage);

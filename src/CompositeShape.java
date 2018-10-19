@@ -44,4 +44,15 @@ public class CompositeShape extends Shape{
             shape.renderShape(g);
         }
     }
+
+    public String toString(){
+        String compositeStr = "Composite[";
+        Iterator<Shape> iterator = shapeList.iterator();
+        while(iterator.hasNext()){
+            Shape shape = iterator.next();
+            compositeStr += shape.toString();
+        }
+        compositeStr+="]";
+        return compositeStr;
+    }
 }

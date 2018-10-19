@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 
 public abstract class Shape {
     private Point center;
@@ -26,6 +26,7 @@ public abstract class Shape {
      */
     public abstract double computeArea();
     public abstract void renderShape(Graphics g);
+    public abstract String toString();
 
     public Point getCenter(){return center;}
 
@@ -55,5 +56,16 @@ public abstract class Shape {
                 Math.pow(point2.getY() - point1.getY(), 2));
     }
 
-
+    public byte[] saveToOutputStream() throws IOException {
+//        OutputStream output = new ByteArrayOutputStream(1024);
+//       try(Writer w = new OutputStreamWriter(output, "UTF-8")){
+//           w.write(this.toString());
+//       } catch (IOException e) {
+//           e.printStackTrace();
+//       }
+        byte[] bytesArray = this.toString().getBytes();
+        return bytesArray;
+//        output.write(bytesArray);
+//        return output;
+    };
 }

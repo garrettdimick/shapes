@@ -40,4 +40,8 @@ public class Ellipse extends Shape{
     public double getyRadius() {
         return yRadius;
     }
+
+    public String toString(){
+        return "Ellipse," + this.getCenter().toString() + "," + this.getxRadius() + "," + this.getyRadius() + "|";
+    }
 }

@@ -29,9 +29,9 @@ class DrawingCanvas extends JPanel {
 
     CompositeShape bigBoy = new CompositeShape();
     CompositeShape hugeOne = new CompositeShape();
-
     public DrawingCanvas() throws ShapeException {
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
     }
 
     public Dimension getPreferredSize() {
@@ -47,14 +47,15 @@ class DrawingCanvas extends JPanel {
         g.setColor(Color.MAGENTA);
         bigBoy.add(r1);
         bigBoy.add(c1);
-
+//        g.drawString(c1.toString(), 50, 50);
 
         hugeOne.add(bigBoy);
         hugeOne.add(c4);
-        hugeOne.add(c5);
-        hugeOne.add(t);
-        hugeOne.add(c6);
+//        hugeOne.add(c5);
+//        hugeOne.add(t);
+//        hugeOne.add(c6);
 //        bigBoy.renderShape(g);
         hugeOne.renderShape(g);
+//        g.drawString(bigBoy.toString(), 50, 100);
     }
 }
