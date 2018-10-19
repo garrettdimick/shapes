@@ -46,12 +46,14 @@ public class ShapeDemo{
         bigBoy.add(c1);
         hugeOne.add(bigBoy);
         hugeOne.add(c4);
+        hugeOne.add(c1);
 
-        try (OutputStream out = new FileOutputStream(OUTPUT_FILE_2)){
-            out.write(hugeOne.saveToOutputStream());
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
+        hugeOne.saveToScriptFile(OUTPUT_FILE_2);
+//        try (OutputStream out = new FileOutputStream(OUTPUT_FILE_2)){
+//            out.write(hugeOne.saveToOutputStream());
+//        } catch (IOException ioe) {
+//            ioe.printStackTrace();
+//        }
     }
 }
 
