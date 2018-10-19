@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.*;
 
 
@@ -10,6 +12,7 @@ public class ShapeDemo{
     private static final String INPUT_FILE_1 = "/Users/garrettdimick/tmp/oneCircle.txt";
     private static final String INPUT_FILE_2 = "/Users/garrettdimick/tmp/compositoryShapeDude.txt";
     private static final String INPUT_FILE_3 = "/Users/garrettdimick/tmp/simpleCompositeShape.txt";
+    private static final String INPUT_FILE_4 = "/Users/garrettdimick/tmp/listofshapes.txt";
     public static void main(String[] args) throws ShapeException, IOException {
         JFrame display = new JFrame("SHAPES!");
         display.setSize(1000, 1000);
@@ -58,9 +61,21 @@ public class ShapeDemo{
 //        byte[] bytes = ShapeFactory.loadInputStream(in);
 //        String inputString = new String(bytes);
 //        Shape newShape = ShapeFactory.getShape(inputString);
-        Shape newShape = ShapeFactory.loadShapeFromFile(INPUT_FILE_1);
-        System.out.println("THE NEW SHAPE IS: ");
-        System.out.println(newShape.toString());
+//        Shape newShape = ShapeFactory.loadShapeFromFile(INPUT_FILE_1);
+//        System.out.println("THE NEW SHAPE IS: ");
+//        System.out.println(newShape.toString());
+
+        ShapeFactory sf = new ShapeFactory();
+        ArrayList<Shape> shapes = new ArrayList<Shape>();
+        File file = new File(INPUT_FILE_4);
+        Scanner sc = new Scanner(file);
+        while(sc.hasNextLine()){
+            Shape ns = sf.getShape(sc.nextLine());
+            shapes.add(ns);
+        }
+        sc.close();
+        System.out.println("The created shapes are: ");
+        System.out.println(shapes);
     }
 }
 

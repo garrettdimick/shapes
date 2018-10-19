@@ -8,13 +8,11 @@ public class EmbeddedPicture extends Shape{
     final int yPixels = 20;
 
 
-    public EmbeddedPicture(String filepath) throws ShapeException, IOException{
-        BufferedImage image = ImageIO.read(new File(filepath));
+    public EmbeddedPicture(InputStream instream) throws ShapeException, IOException{
+        BufferedImage image = ImageIO.read(instream);
         for(int y=1;y<yPixels;y++){
             for(int x=1;x<xPixels;x++){
-                int color = image.getRGB(x,y){
-
-                }
+                int color = image.getRGB(x,y);
             }
         }
     }
@@ -26,12 +24,9 @@ public class EmbeddedPicture extends Shape{
 
     @Override
     public void renderShape(Graphics g) {
-        g.drawImage(getBitmap(), xPixels,yPixels);
+//        g.drawImage(getBitmap(), xPixels,yPixels);
     }
 
-    public Bitmap getBitmap(){
-
-    }
 
     @Override
     public String toString() {

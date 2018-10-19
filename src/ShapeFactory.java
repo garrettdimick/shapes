@@ -16,7 +16,7 @@ public class ShapeFactory {
 
         if(shape == null) {
             List<String> input = parseInput(k);
-            System.out.println("input: " + input);
+//            System.out.println("input: " + input);
 
             Validator.validateInput(input, "Invalid Input.");
             if(input.get(0).equals("Circle")){
@@ -58,12 +58,12 @@ public class ShapeFactory {
                 shapeMap.put(shape.toString(), shape);
                 return shape;
             }
-            if(input.get(0).equals("Composite")){
-                CompositeShape cs = new CompositeShape();
-                input.remove(0);
-                System.out.println("INPUT WILL BE: " + backToString(input));
-                cs.add(getShape(backToString(input)));
-            }
+//            if(input.get(0).equals("Composite")){
+//                CompositeShape cs = new CompositeShape();
+//                input.remove(0);
+//                System.out.println("INPUT WILL BE: " + backToString(input));
+//                cs.add(getShape(backToString(input)));
+//            }
         }
         System.out.println("SHAPE WAS IN THE HASH MAP DUDE!");
         return shape;
