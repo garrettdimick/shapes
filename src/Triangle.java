@@ -55,7 +55,7 @@ public class Triangle extends Shape{
 
     public String toString(){
         return "Triangle," + this.getVertex1().toString() + "," + this.getVertex2().toString()
-                + "," + this.getVertex3().toString() + "|";
+                + "," + this.getVertex3().toString() + ",";
     }
 
     public Point getVertex1() {

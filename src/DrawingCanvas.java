@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+
 
 class DrawingCanvas extends JPanel {
-
+    private static final String INPUT_FILE_2 = "/Users/garrettdimick/tmp/compositoryShapeDude.txt";
     Point p1 = new Point(100, 100);
     Point p2 = new Point(500, 100);
     Point p3 = new Point(500, 400);
@@ -29,9 +31,9 @@ class DrawingCanvas extends JPanel {
 
     CompositeShape bigBoy = new CompositeShape();
     CompositeShape hugeOne = new CompositeShape();
+    Shape newShape = new CompositeShape();
     public DrawingCanvas() throws ShapeException {
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
     }
 
     public Dimension getPreferredSize() {
@@ -39,23 +41,33 @@ class DrawingCanvas extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+//        super.paintComponent(g);
 //        g.setColor(Color.BLUE);
 //        r.renderShape(g);
 //        g.setColor(Color.LIGHT_GRAY);
 //        c.renderShape(g);
-        g.setColor(Color.MAGENTA);
-        bigBoy.add(r1);
-        bigBoy.add(c1);
-//        g.drawString(c1.toString(), 50, 50);
+//        g.setColor(Color.MAGENTA);
+//        bigBoy.add(r1);
+//        bigBoy.add(c1);
+////        g.drawString(c1.toString(), 50, 50);
+//
+//        hugeOne.add(bigBoy);
+//        hugeOne.add(c4);
+////        hugeOne.add(c5);
+////        hugeOne.add(t);
+////        hugeOne.add(c6);
+////        bigBoy.renderShape(g);
+//        hugeOne.renderShape(g);
 
-        hugeOne.add(bigBoy);
-        hugeOne.add(c4);
-//        hugeOne.add(c5);
-//        hugeOne.add(t);
-//        hugeOne.add(c6);
-//        bigBoy.renderShape(g);
-        hugeOne.renderShape(g);
 //        g.drawString(bigBoy.toString(), 50, 100);
+
+//        g.setColor(Color.YELLOW);
+//        try {
+//            newShape = ShapeFactory.loadShapeFromFile(INPUT_FILE_2);
+//        } catch (ShapeException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }

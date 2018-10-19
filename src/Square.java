@@ -48,7 +48,7 @@ public class Square extends Shape{
 
     public String toString(){
         return "Square," + this.getVertex1().toString() + "," + this.getVertex2().toString()
-                + "," + this.getVertex3().toString() + "," + this.getVertex4().toString() + "|";
+                + "," + this.getVertex3().toString() + "," + this.getVertex4().toString() + ",";
     }
 
     public double getSideLength(){

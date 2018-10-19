@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Validator {
     public static void validateDouble(double value, String errorMessage) throws ShapeException {
         if (Double.isInfinite(value) || Double.isNaN(value))
@@ -96,5 +98,39 @@ public class Validator {
      */
     public static void validateSquare(Square s, String errorMessage) throws ShapeException{
 
+    }
+
+    public static void validateInput(List<String> input, String errorMessage) throws ShapeException{
+        if(input.get(0).equals("Circle")){
+            if(input.size() != 4){
+                throw new ShapeException(errorMessage);
+            }
+            return;
+        }
+        if(input.get(0).equals("Ellipse")){
+            if(input.size() != 5){
+                throw new ShapeException(errorMessage);
+            }
+            return;
+        }
+        if(input.get(0).equals("Rectangle")){
+            if(input.size() != 9){
+                throw new ShapeException(errorMessage);
+            }
+            return;
+        }
+        if(input.get(0).equals("Square")){
+            if(input.size() != 9){
+                throw new ShapeException(errorMessage);
+            }
+            return;
+        }
+        if(input.get(0).equals("Triangle")){
+            if(input.size() != 7){
+                throw new ShapeException(errorMessage);
+            }
+            return;
+        }
+        throw new ShapeException(errorMessage);
     }
 }

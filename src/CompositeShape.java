@@ -46,13 +46,13 @@ public class CompositeShape extends Shape{
     }
 
     public String toString(){
-        String compositeStr = "Composite[";
+        String compositeStr = "Composite,";
         Iterator<Shape> iterator = shapeList.iterator();
         while(iterator.hasNext()){
             Shape shape = iterator.next();
             compositeStr += shape.toString();
         }
-        compositeStr+="]";
+        compositeStr+=",";
         return compositeStr;
     }
 }
