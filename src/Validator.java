@@ -33,7 +33,7 @@ public class Validator {
             throw new ShapeException(errorMessage);
     }
 
-    /**
+     /**
      * Check if a Triangle is a valid Triangle
      * No edge should have zero length, vertices cannot all be in the same line, length of an edge cannot be > than the
      * sum of the other two
@@ -46,6 +46,18 @@ public class Validator {
             if(t.getVertex1().getX() == t.getVertex3().getX()){
                 throw new ShapeException(errorMessage);
             }
+        }
+        double side1 = Shape.lineLength(t.getVertex1(), t.getVertex2());
+        double side2 = Shape.lineLength(t.getVertex2(), t.getVertex3());
+        double side3 = Shape.lineLength(t.getVertex3(), t.getVertex1());
+        if(side1 + side2 < side3){
+            throw new ShapeException(errorMessage);
+        }
+        if(side2 + side3 < side1){
+            throw new ShapeException(errorMessage);
+        }
+        if(side1 + side3 < side2){
+            throw new ShapeException(errorMessage);
         }
     }
 
@@ -86,6 +98,29 @@ public class Validator {
      * @throws ShapeException
      */
     public static void validateRectangle(Rectangle r, String errorMessage) throws ShapeException{
+        double side1 = Shape.lineLength(r.getVertex1(), r.getVertex2());
+        double side2 = Shape.lineLength(r.getVertex2(), r.getVertex3());
+        double side3 = Shape.lineLength(r.getVertex3(), r.getVertex4());
+        double side4 = Shape.lineLength(r.getVertex4(), r.getVertex1());
+        //Make sure parallel sides are the same length
+        if(side1 != side3){
+            throw new ShapeException(errorMessage);
+        }
+        if(side2 != side4){
+            throw new ShapeException(errorMessage);
+        }
+        if(r.getVertex1().getX() != r.getVertex4().getX()){
+            throw new ShapeException(errorMessage);
+        }
+        if(r.getVertex1().getY() != r.getVertex2().getY()){
+            throw new ShapeException(errorMessage);
+        }
+        if(r.getVertex2().getX() != r.getVertex3().getX()){
+            throw new ShapeException(errorMessage);
+        }
+        if(r.getVertex3().getY() != r.getVertex4().getY()){
+            throw new ShapeException(errorMessage);
+        }
 
     }
 
@@ -97,7 +132,32 @@ public class Validator {
      * @throws ShapeException
      */
     public static void validateSquare(Square s, String errorMessage) throws ShapeException{
-
+        double side1 = Shape.lineLength(s.getVertex1(), s.getVertex2());
+        double side2 = Shape.lineLength(s.getVertex2(), s.getVertex3());
+        double side3 = Shape.lineLength(s.getVertex3(), s.getVertex4());
+        double side4 = Shape.lineLength(s.getVertex4(), s.getVertex1());
+        //Make sure sides are same length
+        if(side1 != side3){
+            throw new ShapeException(errorMessage);
+        }
+        if(side1 != side2){
+            throw new ShapeException(errorMessage);
+        }
+        if(side1 != side4){
+            throw new ShapeException(errorMessage);
+        }
+        if(s.getVertex1().getX() != s.getVertex4().getX()){
+            throw new ShapeException(errorMessage);
+        }
+        if(s.getVertex1().getY() != s.getVertex2().getY()){
+            throw new ShapeException(errorMessage);
+        }
+        if(s.getVertex2().getX() != s.getVertex3().getX()){
+            throw new ShapeException(errorMessage);
+        }
+        if(s.getVertex3().getY() != s.getVertex4().getY()){
+            throw new ShapeException(errorMessage);
+        }
     }
 
     public static void validateInput(List<String> input, String errorMessage) throws ShapeException{

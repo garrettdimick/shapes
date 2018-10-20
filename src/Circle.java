@@ -21,6 +21,7 @@ public class Circle extends Shape{
         super(cen);
         Validator.validateDouble(radius, "Invalid radius");
         this.radius = radius;
+        Validator.validateCircle(this, "Invalid Circle Construction");
     }
 
     /**

@@ -9,6 +9,7 @@ import javax.swing.*;
 public class ShapeDemo{
     private static final String OUTPUT_FILE_2 = "/Users/garrettdimick/tmp/composite.txt";
     private static final String INPUT_FILE_4 = "/Users/garrettdimick/tmp/listofshapes.txt";
+    private static final String BIG_CIRCLE_FILE = "/Users/garrettdimick/tmp/bigcircle.txt";
     public static void main(String[] args) throws ShapeException, IOException {
         JFrame display = new JFrame("SHAPES!");
         display.setSize(1000, 1000);
@@ -57,6 +58,20 @@ public class ShapeDemo{
             System.out.println("Truth.");
         }
 
+        CompositeShape es = new CompositeShape();
+        Point p = new Point(1,1);
+        Point p1 = new Point(8, 4);
+        Point p2 = new Point(12, 4);
+        Point p3 = new Point(12, 0);
+        Point p4 = new Point(8, 0);
+
+        Ellipse e = new Ellipse(p, 10, 20);
+        Square s = new Square(p1, p2, p3, p4);
+        es.add(e);
+        es.add(s);
+        System.out.println("The newest shape is: " + es.toString());
+
+
 
         // Uncomment the following block of code to demo that the ShapeFactory will create a simple shape from
         // a script which contains a single shape
@@ -84,7 +99,8 @@ public class ShapeDemo{
         System.out.println("The created shapes are: ");
         System.out.println(shapes);
 
-
+       Shape bigCircle = sf.loadShapeFromFile(BIG_CIRCLE_FILE);
+       System.out.println("THIS BIG CIRCLE IS: " + bigCircle.toString());
     }
 }
 
