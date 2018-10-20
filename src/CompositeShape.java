@@ -17,9 +17,7 @@ public class CompositeShape extends Shape{
     }
 
     public void removeAll(){
-        for(Shape s : shapeList){
-            shapeList.remove(s);
-        }
+        shapeList.clear();
     }
 
     public Shape getChild(int i){

@@ -2,6 +2,9 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * ShapeFactory is a factory class that creates
+ */
 public class ShapeFactory {
 
     /**
@@ -11,13 +14,14 @@ public class ShapeFactory {
      */
     private static final HashMap shapeMap = new HashMap();
 
-    public static Shape getShape(String k) throws ShapeException {
+    public static Shape generateShape(String k) throws ShapeException {
         Shape shape = (Shape) shapeMap.get(k);
-
+        if(shapeMap.containsKey(k)){
+//            System.out.println("SHAPE WAS IN THE HASH MAP DUDE!");
+            return (Shape) shapeMap.get(k);
+        }
         if(shape == null) {
             List<String> input = parseInput(k);
-//            System.out.println("input: " + input);
-
             Validator.validateInput(input, "Invalid Input.");
             if(input.get(0).equals("Circle")){
 
@@ -62,14 +66,18 @@ public class ShapeFactory {
 //                CompositeShape cs = new CompositeShape();
 //                input.remove(0);
 //                System.out.println("INPUT WILL BE: " + backToString(input));
-//                cs.add(getShape(backToString(input)));
+//                cs.add(generateShape(backToString(input)));
 //            }
         }
-        System.out.println("SHAPE WAS IN THE HASH MAP DUDE!");
-        return shape;
-
+        return null;
     }
 
+    /**
+     * This method takes an input string and returns it as a String array which allows for easier processing by the
+     * ShapeFactory
+     * @param s
+     * @return
+     */
     public static List<String> parseInput(String s){
         String[] splitInput = s.split(",");
         List<String> inputList = new ArrayList<String>();
@@ -108,7 +116,7 @@ public class ShapeFactory {
         }
         byte[] bytes = ShapeFactory.loadInputStream(in);
         String inputString = new String(bytes);
-        Shape newShape = getShape(inputString);
+        Shape newShape = generateShape(inputString);
         return newShape;
     }
 }

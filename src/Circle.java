@@ -41,7 +41,7 @@ public class Circle extends Shape{
     }
 
     public String toString(){
-        return "Circle," + this.getCenter().toString() + "," + this.getRadius() + ",";
+        return "Circle," + this.getCenter().toString() + "," + this.getRadius();
     }
 
 }
